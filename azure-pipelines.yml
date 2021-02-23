@@ -23,5 +23,6 @@ steps:
   displayName: 'npm install and build'
   
 - task: S3Upload@1
+name: dlgm-fstsrim-bucket-01
 
 
