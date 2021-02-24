@@ -22,7 +22,25 @@ steps:
     cdk synth
   displayName: 'npm install and build'
   
-- task: S3Upload@1
-name: dlgm-fstsrim-bucket-01
+  # Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: CloudFormationCreateOrUpdateStack@1
+  inputs:
+    awsCredentials: 'AWS-Connection'
+    regionName: 'us-east-2'
+    stackName: 'andrzej-devops'
+    templateSource: 'file'
+    templateFile: './S3-stack.yaml'
+    s3BucketName: 'andrzej-templatki'
 
 
