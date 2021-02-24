@@ -22,7 +22,6 @@ steps:
     cdk synth
   displayName: 'npm install and build'
   
-steps:
 - task: CloudFormationCreateOrUpdateStack@1
   inputs:
     awsCredentials: 'AWS-Connection'
